@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+<h1>金融问答系统</h1>
+</div>
+
+<br />
+
+<form>
+    <h4>请输入你的问题：</h4>
+    {% if title %}
+    <textarea type="text" name="title" style="height:50px;width:820px;">{{title}}</textarea>
+    {% else %}
+    <textarea type="text" name="title" style="height:50px;width:820px;"></textarea>
+    {% endif %}
+	<br />
+    <h4>请输入备选答案：</h4>
+    {% if replies %}
+    <textarea type="text" name="replies" style="height:300px;width:820px;" >{{replies}}</textarea>
+    {% else %}
+    <textarea type="text" name="replies" style="height:300px;width:820px;" ></textarea>
+    {% endif %}
+	<br />
+	<input type="submit" value="Submit" />
+</form>
+{% if message %}
+<br />
+<h4>FQA 推荐答案:</h4>
+<p style="color:blue">{{ message }}</p>
+{% endif %}
+
+<br />
+
+<div id="footer">
+Copyright 金融FQA
+</div>
+
+</body>
+</html>
